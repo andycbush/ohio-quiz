@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ohio Quiz App</title>
-    <link src="css/normalize.css" type="text/css">
-    <link src="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
-  <script src="js/jquery-2.2.4.min.js"></script>
-  <script src="js/app.js"></script>
+    <header id="myHeader">
+        <h1 id="myHeaderh1">Quiz for the state of Ohio</h1>
+    </header>
+    <section id="startQuiz">
+        <h2 class="text">How much do you know about the state of Ohio?</h2>
+        <p class="text">Take this quiz to test your knowledge!</p>
+        <button class="start-button" id="startQuizButton">Start</button>
+    </section>
+
+    <section id="quizSection">
+        <div>
+            <div class="questionAnswer">
+                <h2>Q: How many US presidents were born in the state of Ohio?</h2>
+                <h2>A: The seven presidents are: Ulysses S. Grant, Rutherford B Hayes, James A Garfield, Benjamin Harrison, William McKinley, William H. Taft, and Warren G Harding.</h2>
+            </div>
+            <div class="questionAnswer">
+                <h2>Q: What is the official state fruit?</h2>
+                <h2>A: The tomato is the official state fruit!</h2>
+            </div>
+            <div class="questionAnswer">
+                <h2>Q: What is the official state rock and roll song?</h2>
+                <h2>A: Hang on Sloopy is the official rock and roll song!</h2>
+            </div>
+        </div>
+    </section>
+
+    <section id="results">
+        <h2>Final Score</h2>
+        <h2>? out of 10 questions correct!</h2>
+    </section>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

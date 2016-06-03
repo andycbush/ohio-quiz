@@ -35,7 +35,11 @@ General styles (General Module, wrapping around the modules bellow)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
-body {}
+body {
+    background-image: url("http://freeprintoutmaps.com/images/whitemap/oh.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 /* -------------------------------------
@@ -43,11 +47,57 @@ Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
+#myHeaderh1 {
+    background-color: lightgrey;
+    background-position: center center;
+    text-align: center;
+    height: 50px;
+}
+
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
+
+#startQuiz,
+#quizSection,
+#results {
+    background-image: url("../img/transparent.jpg");
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 34rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+.questionAnswer {
+    padding: .5rem;
+    text-align: justify;
+}
+
+.text {
+    padding-bottom: 1rem;
+}
+
+.start-button {
+    background-color: darkgrey;
+    border-color: darkgrey;
+    border-radius: 30px;
+    border-style: none;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    text-shadow: none;
+    width: 9.688rem;
+    color: black;
+}
+
+#results {
+    background-color: lightgrey;
+}
 
 
 /* -------------------------------------
