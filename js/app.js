@@ -11,7 +11,7 @@ var questionsArray = [
     //question 2
     {
         questionText: 'What is the official state fruit?',
-        questionChoices: ['apple', 'tomato', 'cherry'],
+        questionChoices: ['Apple', 'Tomato', 'Buckeye'],
         questionCorrectChoice: 1,
         questionDetails: 'The tomato is the official state fruit!'
     },

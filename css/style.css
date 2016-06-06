@@ -79,11 +79,16 @@ Content styles (Main Module)
     text-align: justify;
 }
 
+.myQuestions {
+    padding-bottom: .2em;
+}
+
 .text {
     padding-bottom: 1rem;
 }
 
-.start-button {
+.start-button,
+#submitButton {
     background-color: darkgrey;
     border-color: darkgrey;
     border-radius: 30px;
