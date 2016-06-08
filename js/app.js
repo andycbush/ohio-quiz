@@ -82,7 +82,58 @@ var correctTotal = 0;
 
 function questionDisplay() {
     //display the current question
-
+    $('.myQuestions').text(questionsArray[currentQuestionNumber].questionText);
+    $('.questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
+    var choiceTotal = questionsArray[currentQuestionNumber].questionChoices.length;
+    $('#choices').empty();
+    for (var i = 0; i < choiceTotal; i++) {
+        //loop thru the answer choices and create an dynamically generated row for each of them
+        $('#choices').append("<input type='radio' class='myAnswers' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>");
+    }
 }
 
 //use functions
+$(document).ready(function () {
+    /*--- Hide quiz and result section on load ---*/
+    $('#quizSection').hide();
+    $('#results').hide();
+    $('#startQuizButton').click(function () { //start the quiz and show the first question
+        $('#results').hide();
+        $('#startQuiz').hide();
+        $('#quizSection').show();
+        questionDisplay();
+    });
+    $('#submitButton').click(function () { //start the quiz and show the first question
+        $('#startQuiz').hide();
+        $('#quizSection').hide();
+        $('#results').show();
+        var answer = $("input[class='myAnswers']:checked").val();
+        var correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
+        if (answer == correctAnswer) {
+            //if correct answer was selected
+            correctTotal++;
+            //console.log(correctTotal);
+        }
+        //quiz is finished, show result-section
+        if ((currentQuestionNumber + 1) == totalNumberOfQuestion) {
+
+            $('#finalScore').text(correctTotal + "/" + totalNumberOfQuestion);
+
+
+            //hide other "screens"
+            $('#quizSection').hide();
+            $('#startQuiz').hide();
+            $('#results').show();
+        } else {
+            //continue to next question
+            currentQuestionNumber++;
+            questionDisplay();
+        }
+
+    });
+    $('#tryAgain').click(function () { //start the quiz and show the first question
+        $('#quizSection').hide();
+        $('#results').hide();
+        $('#startQuiz').show();
+    });
+});
