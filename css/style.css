@@ -35,11 +35,15 @@ General styles (General Module, wrapping around the modules bellow)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
-body {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Map_of_USA_OH.svg/2000px-Map_of_USA_OH.svg.png");
-    background-repeat: no-repeat;
+html {
+    background: rgba(0, 0, 0, 0) url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Map_of_USA_OH.svg/2000px-Map_of_USA_OH.svg.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
+
+body {}
 
 
 /* -------------------------------------
@@ -83,6 +87,17 @@ Content styles (Main Module)
     padding-bottom: .2em;
 }
 
+#choices {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+}
+
+.myAnswers {
+    margin-right: .3em;
+}
+
 .text {
     padding-bottom: 1rem;
 }
@@ -98,6 +113,8 @@ Content styles (Main Module)
     text-shadow: none;
     width: 9.688rem;
     color: black;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .mySpan {

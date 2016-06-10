@@ -1,4 +1,4 @@
-//define global variables
+//Step 1 - define global variables
 
 var questionsArray = [
     //question 1
@@ -78,35 +78,49 @@ var currentQuestionNumber = 0;
 var totalNumberOfQuestions = questionsArray.length;
 var correctTotal = 0;
 
-//define functions
+//Step 2 - define functions
 
 function questionDisplay() {
-    //display the current question
+
+    //1 - display the current question / update text of each question
     $('.myQuestions').text(questionsArray[currentQuestionNumber].questionText);
-    $('.questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestion);
-    var choiceTotal = questionsArray[currentQuestionNumber].questionChoices.length;
+
+    //2 - display what the choices are for current question
+    //2.1 - first delete all the existing choices before populating it with new choices
     $('#choices').empty();
+
+    //2.2 -get the total number of choices for the current question
+    var choiceTotal = questionsArray[currentQuestionNumber].questionChoices.length;
+
+    //2.3 - loop thru all the choices and append them to the choices container
     for (var i = 0; i < choiceTotal; i++) {
-        //loop thru the answer choices and create an dynamically generated row for each of them
+        //2.3.1 - loop thru the answer choices and create an dynamically generated row for each of them
         $('#choices').append("<input type='radio' class='myAnswers' name='option' value=" + i + ">" + questionsArray[currentQuestionNumber].questionChoices[i] + "<br>");
     }
+
+    //display the number of the current question
+    $('.questionNumberDisplay').text("Question " + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestions);
 }
 
 //use functions
 $(document).ready(function () {
+
     /*--- Hide quiz and result section on load ---*/
     $('#quizSection').hide();
     $('#results').hide();
+
+    //On start quiz
     $('#startQuizButton').click(function () { //start the quiz and show the first question
         $('#results').hide();
         $('#startQuiz').hide();
         $('#quizSection').show();
+        //empty the result details container
         questionDisplay();
     });
+
+    //Show quiz questions
     $('#submitButton').click(function () { //start the quiz and show the first question
-        $('#startQuiz').hide();
-        $('#quizSection').hide();
-        $('#results').show();
+
         var answer = $("input[class='myAnswers']:checked").val();
         var correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
         if (answer == correctAnswer) {
@@ -115,9 +129,9 @@ $(document).ready(function () {
             //console.log(correctTotal);
         }
         //quiz is finished, show result-section
-        if ((currentQuestionNumber + 1) == totalNumberOfQuestion) {
+        if ((currentQuestionNumber + 1) == totalNumberOfQuestions) {
 
-            $('#finalScore').text(correctTotal + "/" + totalNumberOfQuestion);
+            $('#finalScore').text(correctTotal + "/" + totalNumberOfQuestions);
 
 
             //hide other "screens"
@@ -132,8 +146,11 @@ $(document).ready(function () {
 
     });
     $('#tryAgain').click(function () { //start the quiz and show the first question
+        console.log(currentQuestionNumber);
         $('#quizSection').hide();
         $('#results').hide();
         $('#startQuiz').show();
+        currentQuestionNumber = 0;
+        correctTotal = 0;
     });
 });
